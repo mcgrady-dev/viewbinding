@@ -1,0 +1,97 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+//apply plugin: 'org.jetbrains.dokka'
+
+Properties localProps = new Properties()
+File localProperties = new File(rootProject.rootDir, "local.properties")
+if (localProperties.exists() && localProperties.isFile()) {
+    localProperties.withInputStream { localProps.load(it) }
+}
+
+project.ext["signing.keyId"] = localProps.getProperty("signing.keyId")
+project.ext["signing.secretKeyRingFile"] = localProps.getProperty("signing.secretKeyRingFile")
+project.ext["signing.password"] = localProps.getProperty("signing.password")
+
+//tasks.register('androidSourcesJar', Jar) {
+//    archiveClassifier.set('sources')
+//    if (project.plugins.findPlugin("com.android.library")) {
+//        from android.sourceSets.main.java.srcDirs
+//        from android.sourceSets.main.kotlin.srcDirs
+//    } else {
+//        from sourceSets.main.java.srcDirs
+//        from sourceSets.main.kotlin.srcDirs
+//    }
+//}
+//
+//tasks.withType(dokkaHtmlPartial.getClass()).configureEach {
+//    pluginsMapConfiguration.set(
+//            ["org.jetbrains.dokka.base.DokkaBase": """{ "separateInheritedMembers": true}"""]
+//    )
+//}
+//
+//tasks.register('javadocJar', Jar) {
+//    dependsOn dokkaJavadoc
+//    archiveClassifier.set('javadoc')
+//    from dokkaJavadoc.outputDirectory
+//}
+
+artifacts {
+    archives androidSourcesJar
+    archives javadocJar
+}
+
+// Because the components are created only during the afterEvaluate phase, you must
+// configure your publications using the afterEvaluate() lifecycle method.
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "maven".
+            maven(MavenPublication) {
+                from components.release
+                groupId GROUP
+                artifactId POM_ARTIFACT_ID
+                version project.properties["VERSION_NAME"]
+
+                pom {
+                    name = POM_NAME
+                    description = POM_DESCRIPTION
+                    url = POM_URL
+                    inceptionYear = POM_INCEPTION_YEAR
+                    licenses {
+                        license {
+                            name = POM_LICENSE_NAME
+                            url = POM_LICENSE_URL
+                            distribution = POM_LICENSE_DIST
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = POM_DEVELOPER_ID
+                            name = POM_DEVELOPER_NAME
+                            email = POM_DEVELOPER_EMAIL
+                        }
+                    }
+                    scm {
+                        connection = POM_SCM_CONNECTION
+                        developerConnection = POM_SCM_DEV_CONNECTION
+                        url = POM_SCM_URL
+                    }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                url = project.properties["VERSION_NAME"].endsWith('SNAPSHOT') ? SNAPSHOT_REPOSITORY_URL : RELEASE_REPOSITORY_URL
+                credentials {
+                    username = localProps.getProperty("mavenCentralUsername")
+                    password = localProps.getProperty("mavenCentralPassword")
+                }
+            }
+        }
+    }
+
+    signing {
+        sign publishing.publications.maven
+    }
+}
