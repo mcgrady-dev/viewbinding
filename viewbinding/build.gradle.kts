@@ -5,8 +5,8 @@ plugins {
 }
 
 android {
-    namespace = "com.mcgrady.xproject.viewbinding"
-    compileSdk = 33
+    namespace = "com.mcgrady.xarch.viewbinding"
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24

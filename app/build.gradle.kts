@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.mcgrady.xproject.viewbinding.samples"
-    compileSdk = 33
+    namespace = "com.mcgrady.xarch.viewbinding.samples"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.mcgrady.xproject.viewbinding.samples"
+        applicationId = "com.mcgrady.xarch.viewbinding.samples"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -48,6 +48,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

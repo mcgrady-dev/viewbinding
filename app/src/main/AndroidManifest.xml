@@ -13,17 +13,31 @@
         android:theme="@style/Theme.Viewbinding"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".FragmentTransactionActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Viewbinding">
+            android:theme="@style/Theme.Viewbinding.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
+        </activity>
+        <activity
+            android:name=".TabbedViewsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_tabbed_views"
+            android:theme="@style/Theme.Viewbinding.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.Viewbinding">
+
+        </activity>
     </application>
 
 </manifest>
