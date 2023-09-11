@@ -1,8 +1,7 @@
-package com.mcgrady.xproject.viewbinding.lifecycle
+package com.mcgrady.xarch.viewbinding.lifecycle
 
 import android.app.Activity
 import android.app.Application
-import android.os.Build
 import android.os.Bundle
 
 internal class ActivityLifecycleCallbacksImpl(private var destroyed: (() -> Unit)? = null) :

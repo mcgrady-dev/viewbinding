@@ -1,24 +1,21 @@
-package com.mcgrady.xproject.viewbinding.delegate
+package com.mcgrady.xarch.viewbinding.delegate
 
 import android.os.Looper
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class ActivityViewBindingPropertyDelegate<T: ViewBinding>(
+internal class ActivityViewBindingDelegate<T: ViewBinding>(
     private val activity: AppCompatActivity,
     private val initializer: (LayoutInflater) -> T
 ) : ReadOnlyProperty<AppCompatActivity, T>, DefaultLifecycleObserver {
 
     private var _value: T? = null
-
-    init {
-        activity.lifecycle.addObserver(this)
-    }
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -35,7 +32,12 @@ class ActivityViewBindingPropertyDelegate<T: ViewBinding>(
                 throw IllegalThreadStateException("This cannot be called from other threads. It should be on the main thread only.")
             }
 
-            _value = initializer(thisRef.layoutInflater)
+            initializer(thisRef.layoutInflater).also {
+                if (thisRef.lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
+                    thisRef.lifecycle.addObserver(this)
+                }
+                _value = it
+            }
         }
 
         return _value!!

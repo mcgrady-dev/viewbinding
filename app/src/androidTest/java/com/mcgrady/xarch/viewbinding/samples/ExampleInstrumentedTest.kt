@@ -1,4 +1,4 @@
-package com.mcgrady.xproject.viewbinding
+package com.mcgrady.xarch.viewbinding.samples
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.mcgrady.xproject.viewbinding.test", appContext.packageName)
+        assertEquals("com.mcgrady.xproject.viewbinding.samples", appContext.packageName)
     }
 }

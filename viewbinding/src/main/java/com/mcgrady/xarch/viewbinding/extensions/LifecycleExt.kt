@@ -1,8 +1,8 @@
-package com.mcgrady.xproject.viewbinding.extensions
+package com.mcgrady.xarch.viewbinding.extensions
 
 
 import androidx.lifecycle.Lifecycle
-import com.mcgrady.xproject.viewbinding.lifecycle.ViewBindingLifecycleObserver
+import com.mcgrady.xarch.viewbinding.lifecycle.ViewBindingLifecycleObserver
 
 internal fun Lifecycle.observerWhenCreated(create: () -> Unit) {
     addObserver(ViewBindingLifecycleObserver(lifecycle = this, create = create))
