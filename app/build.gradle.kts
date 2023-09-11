@@ -1,15 +1,15 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.com.android.application)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
-    namespace = "com.mcgrady.xarch.viewbinding.samples"
+    namespace = "com.mcgrady.xarch.viewbinding.sample"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.mcgrady.xarch.viewbinding.samples"
+        applicationId = "com.mcgrady.xarch.viewbinding.sample"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -48,8 +48,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
-    implementation(libs.lifecycle.livedata.ktx)
-    implementation(libs.lifecycle.viewmodel.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

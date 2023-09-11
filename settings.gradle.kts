@@ -13,6 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "viewbinding"
+rootProject.name = "viewbinding-android"
 include(":app")
 include(":viewbinding")
+

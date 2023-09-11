@@ -1,7 +1,9 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.com.android.library)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    `maven-publish`
+    signing
 }
 
 android {
@@ -46,4 +48,43 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "io.github.mcgrady-dev"
+            artifactId = "viewbinding"
+            version = "1.0.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+            pom {
+
+            }
+        }
+//        debug(MavenPublication) {
+//            afterEvaluate {
+//                from(components["debug"])
+//            }
+//            groupId = "io.github.mcgrady-dev"
+//            artifactId = "viewbinding-debug"
+//            version = "1.0.0"
+//        }
+        repositories {
+            maven {
+                name = "nexus"
+                url = uri("https://s01.oss.sonatype.org/content/repositories/releases/")
+                credentials {
+                    username = "mcgrady"
+                    password = "mogui911@Maven"
+                }
+            }
+        }
+    }
+}
+
+signing {
+    sign(publishing.publications["release"])
 }
