@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding.lifecycle
+package com.mcgrady.libs.viewbinding.lifecycle
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle

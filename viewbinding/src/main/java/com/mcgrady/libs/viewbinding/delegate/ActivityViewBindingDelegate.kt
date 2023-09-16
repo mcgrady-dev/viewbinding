@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding.delegate
+package com.mcgrady.libs.viewbinding.delegate
 
 import android.os.Looper
 import android.view.LayoutInflater

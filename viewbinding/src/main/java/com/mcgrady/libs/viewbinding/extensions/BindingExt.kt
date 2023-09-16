@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding.extensions
+package com.mcgrady.libs.viewbinding.extensions
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.mcgrady.xarch.viewbinding.delegate.FragmentInflateBindingDelegate
-import com.mcgrady.xarch.viewbinding.delegate.FragmentViewBindingDelegate
+import com.mcgrady.libs.viewbinding.delegate.FragmentInflateBindingDelegate
+import com.mcgrady.libs.viewbinding.delegate.FragmentViewBindingDelegate
 import kotlin.properties.ReadOnlyProperty
 
 //inline fun <reified T : ViewBinding> AppCompatActivity.viewBinding(noinline initializer: (LayoutInflater) -> T) =

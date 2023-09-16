@@ -1,17 +1,17 @@
-package com.mcgrady.xarch.viewbinding.delegate
+package com.mcgrady.libs.viewbinding.delegate
 
 import android.os.Looper
-import android.view.LayoutInflater
+import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewbinding.ViewBinding
-import com.mcgrady.xarch.viewbinding.extensions.observerWhenDestroyed
+import com.mcgrady.libs.viewbinding.extensions.observerWhenDestroyed
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class FragmentInflateBindingDelegate<T : ViewBinding>(
-    private val initializer: (LayoutInflater) -> T
+class FragmentViewBindingDelegate<T : ViewBinding>(
+    private val initializer: (View) -> T
 ) : ReadOnlyProperty<Fragment, T> {
 
     private var _value: T? = null
@@ -22,9 +22,9 @@ class FragmentInflateBindingDelegate<T : ViewBinding>(
                 throw IllegalThreadStateException("This cannot be called from other threads. It should be on the main thread only.")
             }
             _value = try {
-                initializer(thisRef.layoutInflater).also { binding ->
-                    if (binding is ViewDataBinding) binding.lifecycleOwner =
-                        thisRef.viewLifecycleOwner
+                initializer(thisRef.requireView()).also { binding ->
+
+                    if (binding is ViewDataBinding) binding.setLifecycleOwner(thisRef.viewLifecycleOwner)
                 }
             } catch (e: IllegalStateException) {
                 throw IllegalStateException("The property of ${property.name} has been destroyed.")
