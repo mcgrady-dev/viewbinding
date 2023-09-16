@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding.sample.ui.notifications
+package com.mcgrady.libs.viewbinding.sample.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.mcgrady.xarch.viewbinding.sample.databinding.FragmentNotificationsBinding
+import com.mcgrady.libs.viewbinding.sample.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
 

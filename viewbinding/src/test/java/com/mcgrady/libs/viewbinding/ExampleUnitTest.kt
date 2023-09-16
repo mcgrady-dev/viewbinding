@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding
+package com.mcgrady.libs.viewbinding
 
 import org.junit.Test
 

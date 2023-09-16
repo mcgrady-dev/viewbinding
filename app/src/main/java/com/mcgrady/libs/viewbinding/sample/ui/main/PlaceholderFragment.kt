@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding.sample.ui.main
+package com.mcgrady.libs.viewbinding.sample.ui.main
 
 import android.os.Bundle
 import android.view.View
@@ -6,9 +6,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.mcgrady.xarch.viewbinding.extensions.viewBinding
-import com.mcgrady.xarch.viewbinding.sample.R
-import com.mcgrady.xarch.viewbinding.sample.databinding.FragmentTabbedViewsBinding
+import com.mcgrady.libs.viewbinding.extensions.viewBinding
+import com.mcgrady.libs.viewbinding.sample.R
+import com.mcgrady.libs.viewbinding.sample.databinding.FragmentTabbedViewsBinding
 
 /**
  * A placeholder fragment containing a simple view.

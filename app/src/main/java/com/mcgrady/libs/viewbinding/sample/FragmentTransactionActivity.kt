@@ -1,14 +1,14 @@
-package com.mcgrady.xarch.viewbinding.sample
+package com.mcgrady.libs.viewbinding.sample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import com.mcgrady.xarch.viewbinding.extensions.viewBinding
-import com.mcgrady.xarch.viewbinding.sample.databinding.ActivityFragmentTransactionBinding
-import com.mcgrady.xarch.viewbinding.sample.ui.home.HomeFragment
-import com.mcgrady.xarch.viewbinding.sample.ui.main.PlaceholderFragment
+import com.mcgrady.libs.viewbinding.extensions.viewBinding
+import com.mcgrady.libs.viewbinding.sample.databinding.ActivityFragmentTransactionBinding
+import com.mcgrady.libs.viewbinding.sample.ui.home.HomeFragment
+import com.mcgrady.libs.viewbinding.sample.ui.main.PlaceholderFragment
 
 class FragmentTransactionActivity : AppCompatActivity(), View.OnClickListener {
 

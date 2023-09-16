@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding.sample.ui.dashboard
+package com.mcgrady.libs.viewbinding.sample.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

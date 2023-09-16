@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding.sample.ui.main
+package com.mcgrady.libs.viewbinding.sample.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

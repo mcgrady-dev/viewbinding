@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding
+package com.mcgrady.libs.viewbinding
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

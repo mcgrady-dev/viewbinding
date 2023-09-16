@@ -1,4 +1,4 @@
-package com.mcgrady.xarch.viewbinding.sample
+package com.mcgrady.libs.viewbinding.sample
 
 import android.os.Bundle
 import android.util.Log
@@ -8,9 +8,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.mcgrady.xarch.viewbinding.BuildConfig
-import com.mcgrady.xarch.viewbinding.extensions.viewBinding
-import com.mcgrady.xarch.viewbinding.sample.databinding.ActivityMainBinding
+import com.mcgrady.libs.viewbinding.BuildConfig
+import com.mcgrady.libs.viewbinding.extensions.viewBinding
+import com.mcgrady.libs.viewbinding.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
