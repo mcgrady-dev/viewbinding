@@ -8,8 +8,6 @@ espresso-core = "3.5.1"
 appcompat = "1.6.1"
 material = "1.9.0"
 constraintlayout = "2.1.4"
-lifecycle-livedata-ktx = "2.6.1"
-lifecycle-viewmodel-ktx = "2.6.1"
 navigation-fragment-ktx = "2.7.0"
 navigation-ui-ktx = "2.7.0"
 
