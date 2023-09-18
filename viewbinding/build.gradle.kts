@@ -13,7 +13,7 @@ val versionCode: String = project.findProperty("VERSION_CODE") as String
 val versionName = project.findProperty("VERSION_NAME") as String
 
 android {
-    namespace = "com.mcgrady.libs.viewbinding"
+    namespace = "com.mcgrady.xlabs.viewbinding"
     compileSdk = 34
 
     defaultConfig {

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.mcgrady.libs.viewbinding.sample"
+    namespace = "com.mcgrady.xlabs.viewbinding.sample"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.mcgrady.libs.viewbinding.sample"
+        applicationId = "com.mcgrady.xlabs.viewbinding.sample"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
